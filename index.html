@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <title>9toFREEDOM — Fire Your Boss</title>
+  <meta name="description" content="Escape the 9-to-5 with real estate fundamentals. Simple, repeatable steps to form your LLC, analyze deals, secure funding, and close your first investment." />
+
+  <meta property="og:title" content="9toFREEDOM — Fire Your Boss" />
+  <meta property="og:description" content="Escape the 9-to-5 with real estate fundamentals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://9tofreedom.life/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial"]
+          },
+          colors: {
+            brand: {
+              pink: "#ff2d8d",
+              pinkHover: "#ff4aa1",
+              bg: "#0b0b0d",
+              panel: "#151518",
+              panel2: "#101013",
+              border: "rgba(255,255,255,0.08)",
+              muted: "rgba(255,255,255,0.72)"
+            }
+          },
+          boxShadow: {
+            panel: "0 10px 30px rgba(0,0,0,0.45)"
+          },
+          borderRadius: {
+            xl2: "18px"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --panel: #151518;
+      --panel2: #101013;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.08);
+      --pink: #ff2d8d;
+      --pink-hover: #ff4aa1;
+      --max: 1180px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.45);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(255,45,141,0.10), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 160ms ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 10px 25px rgba(255,45,141,0.25);
+    }
+    .btn-primary:hover { background: var(--pink-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--border);
+      color: white;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .section { padding: 84px 0; }
+    .section-tight { padding: 56px 0; }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .muted { color: var(--muted); }
+    .accent { color: var(--pink); }
+    .title-xl {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin: 0 0 14px;
+    }
+    .title-lg {
+      font-size: clamp(1.55rem, 2.4vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+    .title-md {
+      font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+      font-weight: 800;
+      margin: 0 0 8px;
+    }
+
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,13,0.68);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-mark {
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(180deg, rgba(255,45,141,0.18), rgba(255,45,141,0.08));
+      border: 1px solid rgba(255,45,141,0.32);
+      color: var(--pink);
+      font-weight: 900;
+    }
+    .nav-links {
+      display: flex; gap: 20px; align-items: center;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-cta { display: flex; gap: 10px; align-items: center; }
+
+    .hero {
+      padding: 84px 0 34px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      padding: 28px;
+    }
+    .hero-copy p {
+      font-size: clamp(1rem, 1.25vw, 1.15rem);
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 0 0 18px;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin-top: 18px;
+    }
+    .hero-points {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin-top: 20px;
+    }
+    .hero-point {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+    .hero-media {
+      overflow: hidden;
+      min-height: 100%;
+      display: grid;
+      align-content: stretch;
+    }
+    .hero-video-wrap {
+      height: 100%;
+      min-height: 340px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #08080a;
+    }
+    .hero-video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .feature-card {
+      padding: 22px;
+      min-height: 100%;
+    }
+    .feature-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      background: rgba(255,45,141,0.12);
+      color: var(--pink);
+      border: 1px solid rgba(255,45,141,0.24);
+      margin-bottom: 12px;
+    }
+
+    .fs-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .fs-card, .fs-results, .book-card, .about-card, .candy-guide-card {
+      padding: 24px;
+    }
+    .fs-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .field select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 14px 14px;
+      outline: none;
+    }
+    .field select:focus {
+      border-color: rgba(255,45,141,0.55);
+      box-shadow: 0 0 0 4px rgba(255,45,141,0.10);
+    }
+    .result-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,45,141,0.12);
+      border: 1px solid rgba(255,45,141,0.24);
+      color: #ffd3e8;
+      font-weight: 800;
+    }
+    .score-big {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 10px 0 8px;
+    }
+    .score-breakdown {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .score-box {
+      padding: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .candy-guide-card {
+      position: relative;
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+    .candy-guide-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, #ff4fa3, rgba(255, 79, 163, 0.15));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .candy-guide-badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 79, 163, 0.12);
+      color: #ff4fa3;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .candy-guide-image-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .candy-guide-image {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.35));
+    }
+    .candy-guide-content h3 {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+    .candy-guide-content p {
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+    .candy-tip-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 79, 163, 0.08);
+      border-left: 4px solid #ff4fa3;
+      color: #ffffff;
+    }
+    .candy-guide-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .candy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+    .candy-btn-primary {
+      background: #ff4fa3;
+      color: #ffffff;
+    }
+    .candy-btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .freedom-next-step,
+    .leaderboard-placeholder {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .leaderboard-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .book-cover {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .headshot {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      padding: 34px 0 64px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .fs-grid,
+      .book-grid,
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-points,
+      .grid-3,
+      .score-breakdown { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-video-wrap { min-height: 260px; }
+      .candy-guide-image { max-width: 220px; }
+      .candy-guide-actions { flex-direction: column; }
+      .candy-btn, .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">9</span>
+        <span>9to<span class="accent">FREEDOM</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#tools">Tools</a>
+        <a href="#freedom-score">Freedom Score</a>
+        <a href="#book">Book</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#freedom-score">Take the Test</a>
+        <a class="btn btn-primary" href="https://www.amazon.com/" target="_blank" rel="noopener">Get the Book</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-copy">
+          <span class="eyebrow">Fire your boss • build systems • own assets</span>
+          <h1 class="title-xl">Stop chasing income. <span class="accent">Start building freedom.</span></h1>
+          <p>
+            9toFreedom helps you move from paycheck dependence to ownership, leverage, and real options.
+            Start with the Freedom Score, grab the framework, and build your next move with intention.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#freedom-score">Calculate Your Freedom Score</a>
+            <a class="btn btn-secondary" href="#book">See the Book</a>
+          </div>
+          <div class="hero-points">
+            <div class="hero-point">
+              <div class="title-md">Measure</div>
+              <div class="muted">Find out how dependent your life still is on a paycheck.</div>
+            </div>
+            <div class="hero-point">
+              <div class="title-md">Diagnose</div>
+              <div class="muted">See your current freedom level and where you need leverage.</div>
+            </div>
+            <div class="hero-point">
+              <div class="title-md">Act</div>
+              <div class="muted">Use the book and tools to move from income to ownership.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel hero-media">
+          <div class="hero-video-wrap">
+            <iframe src="https://www.youtube.com/embed/cIZtw6_qakc?si=WFKivjdg8by90a_s" title="9toFreedom video" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section-tight">
+      <div class="container">
+        <div class="grid-3">
+          <div class="panel feature-card">
+            <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+            <h2 class="title-md">Freedom Score</h2>
+            <p class="muted">A fast diagnostic that shows how dependent your current life is on a paycheck.</p>
+          </div>
+          <div class="panel feature-card">
+            <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+            <h2 class="title-md">Freedom Pyramid</h2>
+            <p class="muted">Understand your current level, from survival to legacy, and what comes next.</p>
+          </div>
+          <div class="panel feature-card">
+            <div class="feature-icon"><i class="fas fa-book"></i></div>
+            <h2 class="title-md">9toFreedom Book</h2>
+            <p class="muted">The framework for moving from income to ownership, leverage, and freedom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="freedom-score" class="section">
+      <div class="container">
+        <div style="margin-bottom:20px; max-width:760px;">
+          <span class="eyebrow">Signature tool</span>
+          <h2 class="title-lg">What’s your Freedom Score?</h2>
+          <p class="muted">Most people don’t have an income problem only. They have a systems problem. This quick calculator helps you see where you really stand.</p>
+        </div>
+
+        <div class="fs-grid">
+          <div class="panel fs-card">
+            <h3 class="title-md">Freedom Score Calculator</h3>
+            <p class="muted">Score your income diversification, asset ownership, leverage, and financial cushion.</p>
+
+            <form class="fs-form" id="freedomScoreForm">
+              <div class="field">
+                <label for="incomeStreams">How many income streams do you currently have?</label>
+                <select id="incomeStreams" required>
+                  <option value="">Select one</option>
+                  <option value="0">One paycheck</option>
+                  <option value="5">Job + small side hustle</option>
+                  <option value="10">Two income streams</option>
+                  <option value="15">Three income streams</option>
+                  <option value="25">Four or more</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="assetOwnership">Do you own assets that generate income?</label>
+                <select id="assetOwnership" required>
+                  <option value="">Select one</option>
+                  <option value="0">None</option>
+                  <option value="5">Retirement account only</option>
+                  <option value="10">Basic investments</option>
+                  <option value="15">One income-producing asset</option>
+                  <option value="25">Multiple assets</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="systemLeverage">How dependent is your income on your time?</label>
+                <select id="systemLeverage" required>
+                  <option value="">Select one</option>
+                  <option value="0">Fully dependent</option>
+                  <option value="5">Mostly dependent</option>
+                  <option value="10">Some automation</option>
+                  <option value="15">Mostly automated</option>
+                  <option value="25">Income continues without daily work</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="financialCushion">How long could you live without income?</label>
+                <select id="financialCushion" required>
+                  <option value="">Select one</option>
+                  <option value="0">Less than 1 month</option>
+                  <option value="5">1–3 months</option>
+                  <option value="10">3–6 months</option>
+                  <option value="15">6–12 months</option>
+                  <option value="25">More than a year</option>
+                </select>
+              </div>
+
+              <div class="hero-actions">
+                <button type="submit" class="btn btn-primary">Show My Score</button>
+                <a class="btn btn-secondary" href="#book">Get the Framework</a>
+              </div>
+            </form>
+
+            <div class="panel fs-results" id="scoreResults" style="margin-top:18px; display:none;">
+              <div class="result-pill">Your result is ready</div>
+              <div class="score-big"><span id="scoreValue">0</span>/100</div>
+              <h4 class="title-md" id="freedomLevelHeading">Level 1–2 — Survival / Awareness</h4>
+              <p class="muted" id="scoreSummary">You’re still heavily dependent on earned income. The next move is building stability and a system.</p>
+
+              <div class="score-breakdown">
+                <div class="score-box"><strong>Income</strong><br><span id="scoreIncome">0</span>/25</div>
+                <div class="score-box"><strong>Assets</strong><br><span id="scoreAssets">0</span>/25</div>
+                <div class="score-box"><strong>Leverage</strong><br><span id="scoreLeverage">0</span>/25</div>
+                <div class="score-box"><strong>Cushion</strong><br><span id="scoreCushion">0</span>/25</div>
+              </div>
+
+              <div class="freedom-next-step">
+                <h4 class="title-md">Your Next Step</h4>
+                <p class="muted">The Freedom Score shows where you are. The 9toFreedom book shows how to climb the pyramid.</p>
+                <div class="candy-guide-actions">
+                  <a href="https://www.amazon.com/" class="candy-btn candy-btn-primary" target="_blank" rel="noopener">Get the Book</a>
+                  <a href="#top" class="candy-btn candy-btn-secondary">Download the 30-Day Plan</a>
+                  <a href="#leaderboard" class="candy-btn candy-btn-secondary">See the Leaderboard</a>
+                </div>
+              </div>
+
+              <div class="leaderboard-placeholder" id="leaderboard">
+                <h4 class="title-md">Freedom Score Leaderboard</h4>
+                <p class="muted">See where the 9toFreedom community stands.</p>
+                <div class="leaderboard-list">
+                  <div class="leaderboard-item"><span>Level 8 — Freedom Operator</span><span>92</span></div>
+                  <div class="leaderboard-item"><span>Level 7 — Leverage Architect</span><span>84</span></div>
+                  <div class="leaderboard-item"><span>Level 6 — Asset Owner</span><span>73</span></div>
+                  <div class="leaderboard-item"><span>Level 4 — Side Hustler</span><span>47</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="candy-guide-card fs-card">
+            <div class="candy-guide-badge">Candy Guide</div>
+            <div class="candy-guide-image-wrap">
+              <img src="images/candy-freedom-score.jpg" alt="Candy, the 9toFreedom guide" class="candy-guide-image" />
+            </div>
+            <div class="candy-guide-content">
+              <h3>Meet Candy</h3>
+              <p>Candy is your 9toFreedom guide. She helps you understand your Freedom Score, your current level, and the next move to build more ownership, leverage, and breathing room.</p>
+              <div class="candy-tip-box">
+                <strong>Candy Tip:</strong>
+                <span>Your score shows where you are. The next step shows how you climb.</span>
+              </div>
+              <div class="candy-guide-actions">
+                <a href="#freedom-score" class="candy-btn candy-btn-primary">Take the Test</a>
+                <a href="#book" class="candy-btn candy-btn-secondary">Get the Book</a>
+                <a href="#leaderboard" class="candy-btn candy-btn-secondary">See the Leaderboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="book" class="section-tight">
+      <div class="container">
+        <div class="panel book-card book-grid">
+          <div class="book-cover">
+            <img src="images/candy-book.jpg" alt="Candy holding the 9toFreedom book" />
+          </div>
+          <div>
+            <span class="eyebrow">The framework</span>
+            <h2 class="title-lg">9 to Freedom — Fire Your Boss Edition</h2>
+            <p class="muted">The score tells you where you are. The book shows you how to move from income to ownership and leverage with practical, repeatable steps.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://www.amazon.com/" target="_blank" rel="noopener">Buy the Book</a>
+              <a class="btn btn-secondary" href="#freedom-score">Take the Freedom Score</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-tight">
+      <div class="container">
+        <div class="panel about-card about-grid">
+          <div class="headshot">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Eric Pinkney" />
+          </div>
+          <div>
+            <span class="eyebrow">Founder</span>
+            <h2 class="title-lg">Eric Pinkney</h2>
+            <p class="muted">Real estate investor, licensed NC Realtor, firm owner, creator, and the force behind 9toFreedom. This platform is built to help people move from dependence to ownership with tools, frameworks, and practical strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 9toFreedom. Built for ownership, leverage, and freedom.
+    </div>
+  </footer>
+
+  <script>
+    function getFreedomLevel(score) {
+      if (score <= 20) {
+        return {
+          title: "Level 1–2 — Survival / Awareness",
+          summary: "You’re still heavily dependent on earned income. The next move is building stability, clarity, and breathing room."
+        };
+      }
+      if (score <= 35) {
+        return {
+          title: "Level 3 — Stabilization",
+          summary: "You’re creating some breathing room, but you still need stronger systems and a better buffer."
+        };
+      }
+      if (score <= 50) {
+        return {
+          title: "Level 4 — Side Hustler",
+          summary: "You’ve started building income beyond one paycheck, but your lifestyle still depends heavily on active work."
+        };
+      }
+      if (score <= 65) {
+        return {
+          title: "Level 5 — System Builder",
+          summary: "You’re moving beyond hustle into structure. The next move is creating more scalable systems and assets."
+        };
+      }
+      if (score <= 75) {
+        return {
+          title: "Level 6 — Asset Owner",
+          summary: "You now own things that produce value. Keep stacking assets and reducing dependence on your time."
+        };
+      }
+      if (score <= 85) {
+        return {
+          title: "Level 7 — Leverage Architect",
+          summary: "Your systems are starting to work for you. This is where freedom gets real and leverage compounds."
+        };
+      }
+      if (score <= 95) {
+        return {
+          title: "Level 8 — Freedom Operator",
+          summary: "You’ve built serious flexibility and optionality. Now the focus shifts to operating with intention."
+        };
+      }
+      return {
+        title: "Level 9 — Legacy Builder",
+        summary: "You’re building freedom that extends beyond yourself. This is ownership, leverage, and impact at the highest level."
+      };
+    }
+
+    document.getElementById('freedomScoreForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const income = parseInt(document.getElementById('incomeStreams').value || '0', 10);
+      const assets = parseInt(document.getElementById('assetOwnership').value || '0', 10);
+      const leverage = parseInt(document.getElementById('systemLeverage').value || '0', 10);
+      const cushion = parseInt(document.getElementById('financialCushion').value || '0', 10);
+
+      const score = income + assets + leverage + cushion;
+      const level = getFreedomLevel(score);
+
+      document.getElementById('scoreValue').textContent = score;
+      document.getElementById('scoreIncome').textContent = income;
+      document.getElementById('scoreAssets').textContent = assets;
+      document.getElementById('scoreLeverage').textContent = leverage;
+      document.getElementById('scoreCushion').textContent = cushion;
+      document.getElementById('freedomLevelHeading').textContent = level.title;
+      document.getElementById('scoreSummary').textContent = level.summary;
+      document.getElementById('scoreResults').style.display = 'block';
+      document.getElementById('scoreResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
